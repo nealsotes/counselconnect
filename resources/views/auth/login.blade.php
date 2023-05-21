@@ -1,4 +1,4 @@
-<x-guest-layout data-theme="cupcake">
+<x-guest-layout class="pt-0">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
