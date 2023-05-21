@@ -1,7 +1,10 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
+        <div class="flex flex-col items-center justify-center">
+            <h1 class="text-2xl font-bold text-gray-600">Registration Form</h1>
+            <h2 class="mb-5 text-gray-600">Please fill the required information to sign up.</h2>
+        </div>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -14,6 +17,28 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+       <!-- ID Number -->
+        <div class="mt-4">
+            <x-input-label for="id_number" :value="__('ID Number')" />
+            <x-text-input id="id_number" class="block mt-1 w-full rounded-md border-gray-300"
+                        type="text"
+                        name="id_number"
+                        :value="old('id_number')"
+                        required />
+            <x-input-error :messages="$errors->get('id_number')" class="mt-2" />
+        </div>
+
+        <!-- Photo -->
+        <div class="mt-4">
+            <x-input-label for="photo" :value="__('Photo')" />
+            <x-text-input id="photo" class="block mt-1 w-full rounded-md border-gray-300"
+                        type="file"
+                        name="photo"
+                        :value="old('photo')"
+                        required />
+            <x-input-error :messages="$errors->get('photo')" class="mt-2" />
         </div>
 
         <!-- Password -->
